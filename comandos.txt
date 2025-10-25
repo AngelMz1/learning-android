@@ -1,0 +1,14 @@
+#update npm
+npm install -g npm@11.6.2
+
+#create new react native project
+npx creaate-expo-app@latest . --template
+
+#isntall react DOM and react native web
+npm expo install react-dom react-native-web
+
+#run server
+npx expo start
+
+#stop server or terminal process
+CTRL + C

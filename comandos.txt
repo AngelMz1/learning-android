@@ -12,3 +12,46 @@ npx expo start
 
 #stop server or terminal process
 CTRL + C
+
+crear un screen de registro con:
+first_name
+last_name
+mobile_number
+email
+password
+
+boton de regreso => I already have an account
+
+tras el logueo dirigir al Home
+
+
+create database with supabase
+
+tables
+    users
+        first_name      varchar not null
+        last_name       varchar not null
+        mobile_number   varchar not null unique
+        email           varchar not null unique
+        password        varchar not null
+        status          default true
+        created_at      timestamp Tz default now()
+        updated_at      timestamp Tz default default now()
+        deleted_at      timestamp Tz default null
+
+implementar un logout
+
+cambiar logo del app
+
+hash password
+execute sql terminal
+"create or replace function hash_password()
+returns trigger as $$
+begin
+  new.password = crypt(new.password, gen_salt('bf'));
+  return new;
+end
+$$ language plpgsql;
+create trigger hash_password_triger
+  before insert on users for each row
+  execute function hash_password();"
